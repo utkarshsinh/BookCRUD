@@ -20,6 +20,11 @@ public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
+    @GetMapping("/hello")
+    String hello(){
+        return "Hello World";
+    }
+
     @PostMapping("/")
     ResponseEntity<Book> saveBook(@RequestBody Book book){
         return ResponseEntity.status(HttpStatus.CREATED).body(bookService.addBook(book));
